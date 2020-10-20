@@ -1,0 +1,3 @@
+displayName = Meteor Expansion
+author = The ME Dev Team
+version = 0.1.1

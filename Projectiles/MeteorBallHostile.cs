@@ -1,6 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Newtonsoft.Json.Serialization;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -8,11 +6,11 @@ using Terraria.ModLoader;
 
 namespace MetEx.Projectiles
 {
-    public class MeteorBall : ModProjectile
+    public class MeteorBallHostile : ModProjectile
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Meteor Spit");
+            DisplayName.SetDefault("Meteor Ball");
         }
         public override void SetDefaults()
         {
@@ -21,7 +19,7 @@ namespace MetEx.Projectiles
             projectile.friendly = true;
             projectile.melee = true;
             projectile.tileCollide = true;
-            projectile.timeLeft = 99999;
+            projectile.timeLeft = 60;
             projectile.light = 0.1f;
             projectile.ignoreWater = false;
             projectile.damage = 12;
@@ -31,7 +29,7 @@ namespace MetEx.Projectiles
         }
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
-            Projectile.NewProjectile(projectile.Center + new Vector2(0, -25), Vector2.Zero, ModContent.ProjectileType<MeteorBallSplashDamage>(), 15, 10);
+            Projectile.NewProjectile(projectile.Center + new Vector2(0, -25), Vector2.Zero, ModContent.ProjectileType<MeteorBallSplashDamageHostile>(), 15, 10);
             Main.PlaySound(SoundID.Item100, projectile.Center);
             SpawnBrightDusts();
             SpawnHighFlyDusts();
@@ -40,9 +38,18 @@ namespace MetEx.Projectiles
             projectile.Kill();
             return false;
         }
+        public override void Kill(int timeLeft)
+        {
+            Projectile.NewProjectile(projectile.Center + new Vector2(0, -25), Vector2.Zero, ModContent.ProjectileType<MeteorBallSplashDamageHostile>(), 15, 10);
+            Main.PlaySound(SoundID.Item100, projectile.Center);
+            SpawnBrightDusts();
+            SpawnHighFlyDusts();
+            SpawnMeteorBreakingDusts();
+            SpawnOrangeDusts();
+        }
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            Projectile.NewProjectile(projectile.Center + new Vector2(0, -25), Vector2.Zero, ModContent.ProjectileType<MeteorBallSplashDamage>(), 15, 10);
+            Projectile.NewProjectile(projectile.Center + new Vector2(0, -25), Vector2.Zero, ModContent.ProjectileType<MeteorBallSplashDamageHostile>(), 15, 10);
             Main.PlaySound(SoundID.Item100, projectile.Center);
             SpawnBrightDusts();
             SpawnHighFlyDusts();

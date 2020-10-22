@@ -11,7 +11,7 @@ namespace MetEx
         public static List<int> MeteorEnemies = new List<int>
         {
             ModContent.NPCType<MeteorShooter>(),
-
+            ModContent.NPCType<MartianScout>(),
         };
     }
 }

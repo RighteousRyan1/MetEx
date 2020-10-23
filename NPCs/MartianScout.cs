@@ -14,7 +14,6 @@ namespace MetEx.NPCs
         {
             Main.npcFrameCount[npc.type] = 2;
         }
-
         public override void SetDefaults()
         {
             npc.width = npc.height = 40;
@@ -43,7 +42,7 @@ namespace MetEx.NPCs
             // Lighting may be overkill
             Lighting.AddLight(npc.Center, 0.5f, 0.5f, 1f);
             // Being under 20% life will initiate self destruction
-            if(npc.life > npc.lifeMax / 5)
+            if (npc.life > npc.lifeMax / 5)
             {
                 shootTimer++;
                 Despawn(player);
@@ -61,15 +60,19 @@ namespace MetEx.NPCs
                         Projectile.NewProjectile(npc.Center, vel * 9, ProjectileID.EyeFire, npc.damage / 3, 6f, Main.myPlayer);
                     }
                 }
-                if(shootTimer % 300 == 0)
+                if (shootTimer % 300 == 0)
                 {
                     Projectile.NewProjectile(npc.Center, new Vector2(0, 7), ModContent.ProjectileType<MartianGroundstriker>(), npc.damage / 2, 6f, Main.myPlayer);
                 }
             }
-            else if(npc.life < npc.lifeMax / 5)
+            else if (npc.life < npc.lifeMax / 5)
             {
                 SelfDestruct(player, 12.5f, 64);
             }
+        }
+        public override float SpawnChance(NPCSpawnInfo spawnInfo)
+        {
+            return spawnInfo.player.ZoneMeteor ? 0.25f : 0f;
         }
         /// <summary>
         /// Self destruction will cause it to blow up whenever its close to the player
@@ -82,7 +85,7 @@ namespace MetEx.NPCs
                 velocity.Normalize();
                 npc.velocity = velocity * velMult;
 
-                if(Vector2.Distance(npc.Center , player.Center) < explodeDist)
+                if(Vector2.Distance(npc.Center, player.Center) < explodeDist)
                 {
                     for(int i =0; i < 6; i++)
                     {

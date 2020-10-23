@@ -36,7 +36,7 @@ namespace MetEx.NPCs
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-			return spawnInfo.player.ZoneMeteor ? .5f : 0f;
+			return spawnInfo.player.ZoneMeteor ? .025f : 0f;
 		}
         public override void HitEffect(int hitDirection, double damage) // Implement at a later date?
         {

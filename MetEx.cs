@@ -1,4 +1,3 @@
-using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -6,6 +5,15 @@ namespace MetEx
 {
     public class MetEx : Mod
     {
+        public override void Load()
+        {
+            On.Terraria.Main.DrawInterface_35_YouDied += Main_DrawInterface_35_YouDied;
+        }
+
+        private void Main_DrawInterface_35_YouDied(On.Terraria.Main.orig_DrawInterface_35_YouDied orig)
+        {
+            orig(); // Idk kinda wanna change death textbut lazy rn lol
+        }
     }
     public class PlaySound : ModCommand
     {

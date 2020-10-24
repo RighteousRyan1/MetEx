@@ -8,9 +8,6 @@ namespace MetEx
 {
     public class MetExPlayer : ModPlayer
     {
-        public override void PostUpdateBuffs()
-        {
-        }
         public override void UpdateBiomeVisuals()
         {
             bool isExhausted = player.HasBuff(ModContent.BuffType<HeatExhaustion>());

@@ -12,7 +12,7 @@ namespace MetEx.Buffs.Bad
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Heat Exhaustion");
-            Description.SetDefault("You feel overwhelmed...\nHeat related debuffs last longer and damage you more\nYour jumps are shorter\nYou are physically exhausted");
+            Description.SetDefault("You feel overwhelmed...\nHeat related debuffs damage you more\nYour jumps are shorter\nYou are physically exhausted\nYour vision is getting worse");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;

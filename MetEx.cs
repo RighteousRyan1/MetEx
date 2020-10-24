@@ -23,11 +23,11 @@ namespace MetEx
                 // and you'll have to do it for every shader file.
                 // This example assumes you have both armour and screen shaders.
 
-                // Ref<Effect> wavy = new Ref<Effect>(GetEffect("MetEx/Effects/Wavy"));
+                Ref<Effect> Wavy = new Ref<Effect>(GetEffect("Effects/Wavy"));
                 // To bind a screen shader, use this.
                 // EffectPriority should be set to whatever you think is reasonable.   
 
-                // Filters.Scene["Wavy"] = new Filter(new ScreenShaderData(wavy, "Wavy"), EffectPriority.VeryHigh);
+                Filters.Scene["Wavy"] = new Filter(new ScreenShaderData(Wavy, "Wavy"), EffectPriority.VeryHigh);
             }
         }
         private void Main_DrawInterface_35_YouDied(On.Terraria.Main.orig_DrawInterface_35_YouDied orig)

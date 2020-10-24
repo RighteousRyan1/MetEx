@@ -8,12 +8,13 @@ namespace MetEx
 {
     public class MetExPlayer : ModPlayer
     {
-        public override void PostUpdate()
+        public override void PostUpdateBuffs()
         {
-            if (player.HasBuff(ModContent.BuffType<HeatExhaustion>()))
-            {
-                // Filters.Scene["Wavy"] = new Filter(new Terraria.Graphics.Shaders.ScreenShaderData(wavy, "Wavy"), EffectPriority.VeryHigh);
-            }
+        }
+        public override void UpdateBiomeVisuals()
+        {
+            bool isExhausted = player.HasBuff(ModContent.BuffType<HeatExhaustion>());
+            player.ManageSpecialBiomeVisuals("Wavy", isExhausted);
         }
     }
 }

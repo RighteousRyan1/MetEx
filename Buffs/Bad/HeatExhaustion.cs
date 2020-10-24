@@ -12,7 +12,7 @@ namespace MetEx.Buffs.Bad
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Heat Exhaustion");
-            Description.SetDefault("You feel overwhelmed...\nHeat related debuffs last longer and damage you more\nYou are physically exhausted");
+            Description.SetDefault("You feel overwhelmed...\nHeat related debuffs last longer and damage you more\nYour jumps are shorter\nYou are physically exhausted");
             Main.debuff[Type] = true;
             Main.buffNoSave[Type] = true;
             Main.buffNoTimeDisplay[Type] = true;
@@ -20,6 +20,7 @@ namespace MetEx.Buffs.Bad
         }
         public override void Update(Player player, ref int buffIndex)
         {
+            Player.jumpSpeed -= (int)(Player.jumpSpeed * 0.40f);
             if (player.lifeRegen > 0)
             {
                 player.lifeRegen = 0;
@@ -67,20 +68,6 @@ namespace MetEx.Buffs.Bad
             }
         }
     }
-    public class ChangeHotDebuffValues : GlobalBuff
-    {
-        public override bool ReApply(int type, Player player, int time, int buffIndex)
-        {
-            if (player.ZoneMeteor)
-            {
-                if (type == BuffID.OnFire)
-                {
-                    time = 0;
-                }
-            }
-            return true;
-        }
-    }
     public class ModifyMeteorSpawnPool : GlobalNPC
     {
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
@@ -97,7 +84,7 @@ namespace MetEx.Buffs.Bad
                 foreach (var id in Lists.MeteorEnemies)
                 {
                     pool.Add(id, 0.5f);
-                    }
+                }
             }
         }
     }

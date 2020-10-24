@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 using MetEx.Projectiles;
 using MetEx.Items.Weapons.Magic;
 
-namespace MetEx.NPCs
+namespace MetEx.NPCs.Hostile
 {
 	public class MeteorShooter : ModNPC
 	{

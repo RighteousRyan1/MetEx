@@ -2,7 +2,7 @@ using Terraria.ID;
 using Terraria;
 using Terraria.ModLoader;
 using System.Collections.Generic;
-using MetEx.NPCs;
+using MetEx.NPCs.Hostile;
 
 namespace MetEx
 {
@@ -12,6 +12,7 @@ namespace MetEx
         {
             ModContent.NPCType<MeteorShooter>(),
             ModContent.NPCType<MartianScout>(),
+            ModContent.NPCType<MeteorSlime>(),
         };
     }
 }

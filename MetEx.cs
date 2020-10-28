@@ -26,6 +26,9 @@ namespace MetEx
                 GameShaders.Armor.BindShader(ModContent.ItemType<LightToDarkDye>(), new ArmorShaderData(dyeRef, "LightToDarkPass"));
             }
         }
+        public override void PostUpdateEverything()
+        {
+        }
         private void Main_DrawInterface_35_YouDied(On.Terraria.Main.orig_DrawInterface_35_YouDied orig)
         {
             orig(); // Idk kinda wanna change death textbut lazy rn lol

@@ -22,8 +22,8 @@ float2 uZoom;
 
 float4 PixelShaderFunction(float2 coords : TEXCOORD0) : COLOR0
 {
-    coords.x += 0.003f * sin(uTime + coords.y * 25 + coords.x * 25);
-    coords.y -= 0.001f * sin(uTime + coords.y * 25 + coords.x * 25);
+    coords.x += 0.005f * sin(uTime + coords.y * 25 + coords.x * 25);
+    coords.y -= 0.003f * sin(uTime + coords.y * 25 + coords.x * 25);
     float4 color = tex2D(uImage0, coords);
     return color;
 }

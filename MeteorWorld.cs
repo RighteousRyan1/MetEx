@@ -26,7 +26,7 @@ namespace MetEx
                 int worldEdgeOffset = 400;
                 int meteorX = WorldGen.genRand.Next(worldEdgeOffset, Main.maxTilesX - worldEdgeOffset);
 
-                Point craterPoint = WorldGenUtils.FindDownwardsTile(meteorX, (int)WorldGen.worldSurfaceHigh + 60);
+                Point craterPoint =  WorldGenUtils.FindDownwardsTile(meteorX, (int)WorldGen.worldSurfaceHigh + 60);
 
                 int craterYOffset = 15;
                 

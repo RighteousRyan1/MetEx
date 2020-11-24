@@ -12,7 +12,7 @@ namespace MetEx
     {
         public override void Load()
         {
-            On.Terraria.Main.DrawInterface_35_YouDied += Main_DrawInterface_35_YouDied;
+            IL.Terraria.Main.DrawInterface_35_YouDied += Main_DrawInterface_35_YouDied1; ;
             if (Main.netMode != NetmodeID.Server)
             {
                 // Screen Shaders
@@ -26,12 +26,22 @@ namespace MetEx
                 GameShaders.Armor.BindShader(ModContent.ItemType<LightToDarkDye>(), new ArmorShaderData(dyeRef, "LightToDarkPass"));
             }
         }
+
+        private void Main_DrawInterface_35_YouDied1(MonoMod.Cil.ILContext il)
+        {
+        }
+
         public override void PostUpdateEverything()
         {
         }
-        private void Main_DrawInterface_35_YouDied(On.Terraria.Main.orig_DrawInterface_35_YouDied orig)
-        {
-            orig(); // Idk kinda wanna change death textbut lazy rn lol
+        public override void UpdateMusic(ref int music, ref MusicPriority priority)
+        {   
+            Player player = Main.player[Main.myPlayer];
+            if (player.ZoneMeteor && Main.dayTime)
+            {
+                music = GetSoundSlot(SoundType.Music, "Sounds/Music/MeteorDay");
+                priority = MusicPriority.BiomeMedium;
+            }
         }
     }
     public class PlaySound : ModCommand

@@ -1,4 +1,4 @@
-using Libvaxy.Content;
+/*using Libvaxy.Content;
 using MetEx.Tiles;
 using Terraria.ModLoader;
 
@@ -12,4 +12,4 @@ namespace MetEx.Items.ItemTiles
             20, 
             ModContent.TileType<CharredRock>()) { }
     }
-}
+}*/

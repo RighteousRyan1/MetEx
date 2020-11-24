@@ -13,14 +13,14 @@ namespace MetEx.Items.Equippables.Dyes
 			DisplayName.SetDefault("Light to Dark Dye");
         }
         public override void SetDefaults()
-		{		
-			item.width = 20;
-			item.height = 20;
-			item.maxStack = 99;
-			item.value = Item.sellPrice(0, 1, 50, 0);
-			item.rare = ItemRarityID.Purple;
-			byte dye = item.dye;
-			item.dye = dye;
-		}
-	}
+        {
+            item.width = 20;
+            item.height = 20;
+            item.maxStack = 99;
+            item.value = Item.sellPrice(0, 1, 50, 0);
+            item.rare = ItemRarityID.Purple;
+            byte dye = item.dye;
+            item.dye = dye;
+        }
+    }
 }

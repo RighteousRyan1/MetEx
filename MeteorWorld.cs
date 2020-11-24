@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Libvaxy.WorldGen;
-using MetEx.Tiles;
+// using Libvaxy.WorldGen;
+// using MetEx.Tiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.Generation;
@@ -12,7 +12,7 @@ namespace MetEx
 {
     public class MeteorWorld : ModWorld
     {
-        public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+       /* public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
             int index = tasks.FindIndex(pass => pass.Name == "Mushrooms");
 
@@ -64,6 +64,6 @@ namespace MetEx
             float radius = WorldGen.genRand.NextFloat(50f, 60f);
             float frequency = WorldGen.genRand.NextFloat(0.0035f, 0.005f);
             WorldGenUtils.NoiseRunner(i, j, TileID.Meteorite, radius, frequency);
-        }
+        }*/
     }
 }

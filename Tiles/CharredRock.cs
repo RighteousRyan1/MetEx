@@ -1,4 +1,4 @@
-using Libvaxy.Extensions;
+/*using Libvaxy.Extensions;
 using MetEx.Items.ItemTiles;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -30,4 +30,4 @@ namespace MetEx.Tiles
             return false;
         }
     }
-}
+}*/
